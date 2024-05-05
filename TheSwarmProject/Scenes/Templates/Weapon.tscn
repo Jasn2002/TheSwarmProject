@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpnijfprqodx8"]
+
+[ext_resource type="Texture2D" uid="uid://qkpqk0jjib5u" path="res://Images/Weapon/TurretWoodenBallista.png" id="1_q8n72"]
+[ext_resource type="Script" path="res://Scripts/CustomNodes/Weapon.gd" id="2_o1x46"]
+
+[node name="Weapon" type="Sprite2D"]
+rotation = 0.0228595
+texture = ExtResource("1_q8n72")
+script = ExtResource("2_o1x46")
+isReloading = null
+
+[node name="ReloadTimer" type="Timer" parent="."]
+
+[node name="ProjectileHolder" type="Node2D" parent="."]

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="WeaponResource" load_steps=3 format=3 uid="uid://dtb4k637dq06u"]
+
+[ext_resource type="Script" path="res://Resources/WeaponResource.gd" id="1_vrv5c"]
+[ext_resource type="Texture2D" uid="uid://qkpqk0jjib5u" path="res://Images/Weapon/TurretWoodenBallista.png" id="2_q1u3j"]
+
+[resource]
+script = ExtResource("1_vrv5c")
+name = "Ballista"
+visuals = ExtResource("2_q1u3j")
+reloadTime = 0.5
+detectionRange = 200.0

@@ -1,0 +1,45 @@
+[gd_scene load_steps=10 format=3 uid="uid://dj3e3evm2g2ic"]
+
+[ext_resource type="Script" path="res://Scenes/Maps/test_scene.gd" id="1_a7qp6"]
+[ext_resource type="AudioStream" uid="uid://dl4j3m2rjrsif" path="res://Audio/Background/medievalBackgroundMusic.mp3" id="2_mfqw8"]
+[ext_resource type="Script" path="res://Scripts/NavigationRegion.gd" id="2_mgycq"]
+[ext_resource type="PackedScene" uid="uid://cjawuppmour0y" path="res://Scenes/UI/MainGUI.tscn" id="2_pwwqm"]
+[ext_resource type="PackedScene" uid="uid://ie1pgpghbptt" path="res://Scenes/Pathfinding/EnemySpawn.tscn" id="4_eh72y"]
+[ext_resource type="PackedScene" uid="uid://6620vkxvq3st" path="res://Scenes/Pathfinding/EnemyGoal.tscn" id="4_if3m6"]
+[ext_resource type="PackedScene" uid="uid://blrl0mgckxn3i" path="res://Scenes/Maps/BasicTileMap.tscn" id="6_whj68"]
+[ext_resource type="PackedScene" uid="uid://dr8a073i17sdr" path="res://Scenes/Units/Allies/Squad.tscn" id="8_mvfub"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_3rm5f"]
+vertices = PackedVector2Array(335, 502, 330, 502, 330, 499, 335, 499, 246, 214, 241, 214, 241, 210, 246, 210, 586, 618, 1278, 667, -134, 671, 534, 618, 394, 170, 426, 138, 534, 118, 458, 246, 406, 246, 458, 426, 362, 554, 310, 554, 399, 138, 394, 118, 399, 115, 374, 115, 342, 118, 362, 470, 406, 426, 426, 86, 1281, 458, 630, 458, 586, 406, 630, 374, 657, 242, 1283, 242, 1281, 374, 1261, 374, 657, 266, 1261, 406, 1258, 406, 1258, 374, 630, 266, 563, 406, 563, 402, 586, 402, 586, 246, 630, 214, 586, 242, 563, 246, 563, 242, 586, 118, 330, 470, 330, 438, 298, 438, 298, 406, 266, 406, 266, 234, 298, 234, 214, 426, 246, 426, 246, 490, 273, 490, 273, 466, 278, 466, 278, 467, 303, 467, 303, 470, 278, 470, 278, 522, 310, 522, 1286, -95, 1283, 214, -173, -150, 374, 86, 214, 182, 298, 182, 342, 170)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(8, 9, 10, 11), PackedInt32Array(12, 13, 14, 15, 16), PackedInt32Array(14, 11, 17, 15), PackedInt32Array(18, 11, 10, 19), PackedInt32Array(20, 13, 12), PackedInt32Array(20, 12, 21, 22), PackedInt32Array(23, 22, 21, 24), PackedInt32Array(17, 11, 18, 25, 26), PackedInt32Array(14, 13, 27), PackedInt32Array(28, 9, 8, 29), PackedInt32Array(29, 8, 30, 31), PackedInt32Array(32, 33, 34, 35, 36), PackedInt32Array(35, 37, 38, 39), PackedInt32Array(36, 35, 39), PackedInt32Array(36, 39, 31, 40), PackedInt32Array(30, 41, 42, 43), PackedInt32Array(31, 30, 43), PackedInt32Array(31, 43, 44, 40), PackedInt32Array(45, 40, 44, 46), PackedInt32Array(44, 47, 48, 46), PackedInt32Array(45, 46, 49), PackedInt32Array(26, 25, 50, 51, 16), PackedInt32Array(51, 52, 53, 16), PackedInt32Array(53, 54, 55, 56, 16), PackedInt32Array(57, 58, 59), PackedInt32Array(60, 61, 62, 63), PackedInt32Array(63, 64, 65, 66), PackedInt32Array(60, 63, 66), PackedInt32Array(60, 66, 67), PackedInt32Array(67, 68, 19, 10), PackedInt32Array(69, 70, 45, 49), PackedInt32Array(71, 69, 49, 14, 27), PackedInt32Array(71, 27, 72), PackedInt32Array(72, 23, 24, 71), PackedInt32Array(59, 60, 67, 10), PackedInt32Array(59, 10, 71, 57), PackedInt32Array(73, 57, 71), PackedInt32Array(74, 73, 71, 24, 75), PackedInt32Array(75, 12, 16, 56, 74)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-184, -161, -144, 682, 1288, 677, 1297, -105)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+
+[node name="TestScene" type="Node2D"]
+script = ExtResource("1_a7qp6")
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_3rm5f")
+script = ExtResource("2_mgycq")
+
+[node name="TileMap" parent="NavigationRegion2D" instance=ExtResource("6_whj68")]
+layer_0/tile_data = PackedInt32Array(458787, 131074, 1, 458786, 131074, 1, 458785, 131074, 1, 458784, 131074, 1, 458783, 131074, 1, 458782, 131074, 1, 458781, 131074, 1, 458780, 131074, 1, 458779, 131074, 1, 458778, 131074, 1, 458777, 131074, 1, 458772, 65538, 1, 458773, 131074, 1, 458774, 131074, 1, 458775, 131074, 1, 458776, 131074, 1, 851988, 393218, 7, 851989, 393218, 7, 851990, 131074, 7, 851991, 262146, 10, 851992, 196610, 7, 851993, 131074, 10, 851994, 393218, 7, 851995, 131074, 7, 851996, 131074, 10, 851997, 131074, 4, 851998, 131074, 10, 851999, 196610, 7, 852000, 131074, 4, 852001, 327682, 10, 852002, 262146, 7, 786452, 458754, 1, 786453, 65538, 6, 786454, 262146, 9, 786455, 458754, 1, 786456, 65538, 6, 786457, 393218, 1, 786458, 262146, 6, 786459, 393218, 6, 786460, 262146, 9, 786461, 65538, 6, 786462, 196610, 6, 786463, 262146, 6, 786464, 327682, 9, 786465, 262146, 6, 786466, 262146, 9, 786467, 327682, 9, 852003, 262146, 7, 262161, 65538, 2, 327697, 65538, 2, 393233, 65538, 2, 786449, 786434, 2, 851985, 65538, 2, 458769, 851970, 2, 524305, 196610, 2, 589841, 196610, 2, 655377, 196610, 2, 720913, 196610, 2, 917521, 196610, 2, 983057, 196610, 2, 1048593, 196610, 2, 1114129, 196610, 2, 1179665, 196610, 2, 524301, 65538, 2, 589837, 196610, 2, 655373, 65538, 2, 720909, 65538, 2, 786445, 196610, 2, 1048586, 65538, 2, 983050, 196610, 1, 983049, 65538, 2, 917513, 196610, 1, 917512, 65538, 1, 851976, 851970, 4, 786439, 196610, 2, 720903, 196610, 2, 655367, 196610, 2, 589831, 65538, 2, 524295, 65538, 2, 458759, 65538, 2, 393223, 65538, 1, 393224, 196610, 2, 262155, 65538, 2, 196620, 196610, 1, 786468, 327682, 2, 786469, 131074, 3, 786470, 458754, 2, 786471, 655362, 3, 852004, 131074, 4, 852005, 851970, 4, 852006, 786434, 4, 852007, 851970, 4, 786472, 131074, 1, 458788, 131074, 1, 458789, 131074, 1, 458790, 131074, 1, 458791, 131074, 1, 458792, 131074, 1, 458793, 131074, 1, 786473, 131074, 1, 852008, 131074, 1, 852009, 131074, 1)
+
+[node name="BackgroundMusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_mfqw8")
+autoplay = true
+bus = &"Music"
+
+[node name="EnemyGoal" parent="." instance=ExtResource("4_if3m6")]
+position = Vector2(165, 328)
+
+[node name="EnemySpawn" parent="." instance=ExtResource("4_eh72y")]
+position = Vector2(1050, 333)
+timeBetweenSpawn = 1.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(438, 220)
+
+[node name="MainGUI" parent="." instance=ExtResource("2_pwwqm")]
+
+[node name="Squad" parent="." instance=ExtResource("8_mvfub")]

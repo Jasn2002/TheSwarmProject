@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://q0o8dp7kmwua"]
+
+[ext_resource type="Script" path="res://Scripts/UI/ResourceDisplay.gd" id="1_fencs"]
+[ext_resource type="Texture2D" uid="uid://bclocl6q5n4sk" path="res://Images/UI/Icons/IconBackground.png" id="2_vs4vg"]
+
+[node name="ResourceDisplay" type="HBoxContainer"]
+script = ExtResource("1_fencs")
+
+[node name="Icon" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_vs4vg")
+stretch_mode = 3
+
+[node name="Quantity" type="Label" parent="."]
+custom_minimum_size = Vector2(32, 16)
+layout_mode = 2

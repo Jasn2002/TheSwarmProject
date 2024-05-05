@@ -1,0 +1,44 @@
+[gd_scene load_steps=8 format=3 uid="uid://d8v2fg0d3mm3"]
+
+[ext_resource type="Texture2D" uid="uid://cpms7n8yp07ko" path="res://Images/Enemies/EnemyCrawlerDeath.png" id="1_pgop5"]
+[ext_resource type="Script" path="res://Scripts/CustomNodes/EnemyDeath.gd" id="2_6g8l2"]
+[ext_resource type="AudioStream" uid="uid://uagdkboxp1jd" path="res://Audio/SFX/crossbowFiringSFK.mp3" id="2_pof0u"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_enr6y"]
+atlas = ExtResource("1_pgop5")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_66xno"]
+atlas = ExtResource("1_pgop5")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_axmdk"]
+atlas = ExtResource("1_pgop5")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5848k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_enr6y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_66xno")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_axmdk")
+}],
+"loop": false,
+"name": &"default",
+"speed": 3.0
+}]
+
+[node name="EnemyDeath" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_5848k")
+frame = 2
+frame_progress = 1.0
+script = ExtResource("2_6g8l2")
+
+[node name="SFXPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_pof0u")
+bus = &"SFX"

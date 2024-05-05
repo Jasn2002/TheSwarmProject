@@ -1,0 +1,84 @@
+[gd_scene load_steps=13 format=3 uid="uid://do7afjei4bvcs"]
+
+[ext_resource type="Script" path="res://Scripts/CustomNodes/Enemy.gd" id="1_5lrjn"]
+[ext_resource type="Resource" uid="uid://c8ls0ivf7qc71" path="res://Resources/Enemy/Crawler.tres" id="2_6mjgi"]
+[ext_resource type="Texture2D" uid="uid://8wpkqd46qiei" path="res://Images/Enemies/CrawlerSheet.png" id="2_eacge"]
+[ext_resource type="Script" path="res://Scripts/ComponentScripts/HurtboxComponent.gd" id="3_2ds1k"]
+[ext_resource type="PackedScene" uid="uid://bwjhrgd44dnny" path="res://Scenes/Components/HealthComponent.tscn" id="4_nk1hw"]
+[ext_resource type="Script" path="res://Scripts/ComponentScripts/NavigationComponent.gd" id="5_cums5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fu0qv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ba0yi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ybkgv"]
+atlas = ExtResource("2_eacge")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_voxq4"]
+atlas = ExtResource("2_eacge")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jcj4v"]
+atlas = ExtResource("2_eacge")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p0o5s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ybkgv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_voxq4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jcj4v")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("navigationComponent", "healthComponent") groups=["Enemy"]]
+z_as_relative = false
+rotation = 0.117089
+scale = Vector2(-1, -1)
+collision_layer = 2
+motion_mode = 1
+wall_min_slide_angle = 1.5708
+safe_margin = 1.0
+script = ExtResource("1_5lrjn")
+id = "021"
+resource = ExtResource("2_6mjgi")
+navigationComponent = NodePath("NavigationComponent")
+healthComponent = NodePath("HealthComponent")
+
+[node name="Collider" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_fu0qv")
+
+[node name="HurtboxComponent" type="Area2D" parent="." node_paths=PackedStringArray("healthComponent")]
+visible = false
+script = ExtResource("3_2ds1k")
+healthComponent = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
+shape = SubResource("RectangleShape2D_ba0yi")
+debug_color = Color(0.835294, 0.368627, 0.34902, 0.419608)
+
+[node name="HealthComponent" parent="." instance=ExtResource("4_nk1hw")]
+position = Vector2(1.05139, 8.93838)
+rotation = -0.118152
+
+[node name="NavigationComponent" type="NavigationAgent2D" parent="."]
+path_postprocessing = 1
+debug_enabled = true
+script = ExtResource("5_cums5")
+
+[node name="Body" type="AnimatedSprite2D" parent="."]
+rotation = 3.03175
+sprite_frames = SubResource("SpriteFrames_p0o5s")
+autoplay = "default"
+frame = 1
+frame_progress = 0.479349

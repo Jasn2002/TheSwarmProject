@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://bwjhrgd44dnny"]
+
+[ext_resource type="Script" path="res://Scripts/ComponentScripts/HealthComponent.gd" id="1_26rgl"]
+[ext_resource type="Texture2D" uid="uid://crnp48ie2t5cx" path="res://Images/UI/HealthBarUnder.png" id="2_a270v"]
+[ext_resource type="Texture2D" uid="uid://drta0it840kbl" path="res://Images/UI/HealthBarProgress.png" id="3_7pib5"]
+
+[node name="HealthComponent" type="Node2D"]
+script = ExtResource("1_26rgl")
+max_health = 5.0
+pierceResistance = 1
+
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+clip_contents = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -15.0
+offset_right = 4.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(0, 13)
+value = 75.0
+fill_mode = 2
+nine_patch_stretch = true
+texture_under = ExtResource("2_a270v")
+texture_progress = ExtResource("3_7pib5")
+tint_under = Color(1, 0.2, 0.2, 1)

@@ -1,0 +1,39 @@
+[gd_scene load_steps=8 format=3 uid="uid://dj3e3evm2g2ic"]
+
+[ext_resource type="Script" path="res://Scenes/Maps/test_scene.gd" id="1_a7qp6"]
+[ext_resource type="AudioStream" uid="uid://dl4j3m2rjrsif" path="res://Audio/Background/medievalBackgroundMusic.mp3" id="2_mfqw8"]
+[ext_resource type="PackedScene" uid="uid://cjawuppmour0y" path="res://Scenes/UI/MainGUI.tscn" id="2_pwwqm"]
+[ext_resource type="PackedScene" uid="uid://ie1pgpghbptt" path="res://Scenes/Pathfinding/EnemySpawn.tscn" id="4_eh72y"]
+[ext_resource type="PackedScene" uid="uid://6620vkxvq3st" path="res://Scenes/Pathfinding/EnemyGoal.tscn" id="4_if3m6"]
+[ext_resource type="PackedScene" uid="uid://blrl0mgckxn3i" path="res://Scenes/Maps/BasicTileMap.tscn" id="6_whj68"]
+[ext_resource type="PackedScene" uid="uid://dr8a073i17sdr" path="res://Scenes/Units/Allies/Squad.tscn" id="8_mvfub"]
+
+[node name="TestScene" type="Node2D" node_paths=PackedStringArray("camera")]
+script = ExtResource("1_a7qp6")
+camera = NodePath("Camera2D")
+
+[node name="BackgroundMusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_mfqw8")
+autoplay = true
+bus = &"Music"
+
+[node name="EnemyGoal" parent="." instance=ExtResource("4_if3m6")]
+position = Vector2(165, 328)
+
+[node name="EnemySpawn" parent="." instance=ExtResource("4_eh72y")]
+position = Vector2(1050, 333)
+timeBetweenSpawn = 1.0
+
+[node name="Squad" parent="." instance=ExtResource("8_mvfub")]
+position = Vector2(170, 139)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(10, 31)
+anchor_mode = 0
+limit_left = -126
+limit_top = -98
+
+[node name="MainGUI" parent="." instance=ExtResource("2_pwwqm")]
+follow_viewport_enabled = false
+
+[node name="TileMap" parent="." instance=ExtResource("6_whj68")]

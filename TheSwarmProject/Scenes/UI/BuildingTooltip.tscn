@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://bpm32xbnnh7cn"]
+
+[ext_resource type="Script" path="res://Scripts/UI/BuildingTooltip.gd" id="1_qqmpv"]
+
+[node name="ButtonContainer" type="HBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_qqmpv")
+
+[node name="ViewButton" type="Button" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "VIEW"
+
+[node name="EditButton" type="Button" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "EDIT"
+
+[connection signal="button_up" from="ViewButton" to="." method="_on_view_button_button_up"]
+[connection signal="button_up" from="EditButton" to="." method="_on_edit_button_button_up"]

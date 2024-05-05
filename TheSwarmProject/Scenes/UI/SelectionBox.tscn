@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://7n164e2wnstm"]
+
+[ext_resource type="Script" path="res://Scripts/UI/SelectionBox.gd" id="1_gkre0"]
+
+[node name="SelectionBox" type="ColorRect" groups=["SelectionBox"]]
+color = Color(0.486275, 0.909804, 0.27451, 0.427451)
+script = ExtResource("1_gkre0")

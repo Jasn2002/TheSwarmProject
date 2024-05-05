@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="StructureResource" load_steps=4 format=3 uid="uid://bqubmwky71v24"]
+
+[ext_resource type="Script" path="res://Resources/StructureResource.gd" id="1_68os1"]
+[ext_resource type="Resource" uid="uid://dosmreuiu3opw" path="res://Resources/DefaultCost.tres" id="1_uu2tl"]
+[ext_resource type="Texture2D" uid="uid://ckexdr2udd0k7" path="res://Images/Structures/TurretWoodenBase.png" id="2_436ib"]
+
+[resource]
+script = ExtResource("1_68os1")
+name = "WoodenTower"
+visuals = ExtResource("2_436ib")
+weaponSlots = 1
+costResource = ExtResource("1_uu2tl")
+cellCollisions = Array[int]([])

@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dkde4uiln34pd"]
+
+[ext_resource type="Texture2D" uid="uid://ckexdr2udd0k7" path="res://Images/Structures/TurretWoodenBase.png" id="1_k5hng"]
+[ext_resource type="Script" path="res://Scripts/UI/BuildingPreview.gd" id="2_jrd50"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0yv7y"]
+size = Vector2(32, 32)
+
+[node name="BuildingPreview" type="Sprite2D"]
+modulate = Color(1, 1, 1, 0.784314)
+z_index = 5
+texture = ExtResource("1_k5hng")
+script = ExtResource("2_jrd50")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_0yv7y")

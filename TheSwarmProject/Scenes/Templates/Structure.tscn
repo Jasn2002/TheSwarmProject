@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://dm8ynjwaie46v"]
+
+[ext_resource type="Script" path="res://Scripts/CustomNodes/Structure.gd" id="1_5c8q5"]
+[ext_resource type="Resource" uid="uid://bqubmwky71v24" path="res://Resources/Structures/WoodenTower.tres" id="2_ndw3j"]
+[ext_resource type="Texture2D" uid="uid://ckexdr2udd0k7" path="res://Images/Structures/TurretWoodenBase.png" id="3_b2rk4"]
+[ext_resource type="PackedScene" uid="uid://c5bn6377463ql" path="res://Scenes/Components/SelectableComponent.tscn" id="5_sk87i"]
+
+[node name="Structre" type="Node2D"]
+position = Vector2(88, 68)
+script = ExtResource("1_5c8q5")
+resource = ExtResource("2_ndw3j")
+id = "011"
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("3_b2rk4")
+
+[node name="WeaponHolder" type="Node2D" parent="."]
+
+[node name="SelectableComponent" parent="." instance=ExtResource("5_sk87i")]

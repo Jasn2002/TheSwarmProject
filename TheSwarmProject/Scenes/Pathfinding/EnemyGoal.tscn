@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://6620vkxvq3st"]
+
+[ext_resource type="Script" path="res://Scripts/CustomNodes/EnemyGoal.gd" id="1_3jbjj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ku5is"]
+radius = 30.0
+
+[node name="EnemyGoal" type="Area2D" groups=["EnemyGoal"]]
+monitorable = false
+script = ExtResource("1_3jbjj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ku5is")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

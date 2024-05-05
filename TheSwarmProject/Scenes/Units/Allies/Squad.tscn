@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://dr8a073i17sdr"]
+
+[ext_resource type="Script" path="res://Scripts/CustomNodes/Squad.gd" id="1_arfij"]
+[ext_resource type="PackedScene" uid="uid://rjkppaofm66q" path="res://Scenes/Units/Allies/Commander.tscn" id="1_rvkvt"]
+[ext_resource type="Script" path="res://Scripts/ComponentScripts/FormationComponent.gd" id="5_kc41d"]
+[ext_resource type="PackedScene" uid="uid://c5bn6377463ql" path="res://Scenes/Components/SelectableComponent.tscn" id="5_myw6l"]
+[ext_resource type="PackedScene" uid="uid://b8kot74l5l7pd" path="res://Scenes/UI/SquadUI.tscn" id="6_5c2rd"]
+[ext_resource type="Texture2D" uid="uid://f0ndy03kdutr" path="res://Images/UI/SquadBanner.png" id="6_ws8ol"]
+
+[node name="Squad" type="Node2D" node_paths=PackedStringArray("commander", "followerHolder", "formationComponent", "selectionVisuals")]
+script = ExtResource("1_arfij")
+commander = NodePath("Commander")
+followerHolder = NodePath("Follower Holder")
+formationComponent = NodePath("FormationComponent")
+selectionVisuals = NodePath("SelectableComponent/Banner")
+
+[node name="Commander" parent="." instance=ExtResource("1_rvkvt")]
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Commander"]
+remote_path = NodePath("../../SelectableComponent")
+
+[node name="RemoteTransform2D2" type="RemoteTransform2D" parent="Commander"]
+position = Vector2(-82, -64)
+remote_path = NodePath("../../SquadUI")
+
+[node name="Follower Holder" type="Node" parent="."]
+
+[node name="FormationComponent" type="Node2D" parent="."]
+script = ExtResource("5_kc41d")
+spread = 0.5
+
+[node name="SelectableComponent" parent="." instance=ExtResource("5_myw6l")]
+radius = 48.0
+
+[node name="Banner" type="Sprite2D" parent="SelectableComponent"]
+position = Vector2(-1, -95)
+scale = Vector2(2, 2)
+texture = ExtResource("6_ws8ol")
+
+[node name="SquadUI" parent="." instance=ExtResource("6_5c2rd")]
+top_level = true
+z_index = 1
+position = Vector2(-82, -64)

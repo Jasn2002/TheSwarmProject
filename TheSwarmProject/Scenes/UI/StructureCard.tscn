@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://m2vvdrwgxfu1"]
+
+[ext_resource type="Texture2D" uid="uid://ckexdr2udd0k7" path="res://Images/Structures/TurretWoodenBase.png" id="1_su1vx"]
+
+[sub_resource type="GDScript" id="GDScript_0fuf7"]
+script/source = "extends CardItem
+class_name StructureCard
+
+func Update() -> void :
+	print_debug(cardResource.resource_name)
+	label.text = ''
+	label.text += cardResource.name + '\\n'
+	label.text += 'Slots: ' + str(cardResource.weponSlots) + '\\n'
+	self.displayTexture = cardResource.visuals
+	if !displayTexture:
+		return
+	textureRect.texture = displayTexture
+	
+"
+
+[node name="ItemContainer" type="VBoxContainer"]
+script = SubResource("GDScript_0fuf7")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_su1vx")
+stretch_mode = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Base"

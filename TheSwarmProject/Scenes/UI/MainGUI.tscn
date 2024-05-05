@@ -1,0 +1,93 @@
+[gd_scene load_steps=11 format=3 uid="uid://cjawuppmour0y"]
+
+[ext_resource type="Script" path="res://Scripts/UI/MainGUI.gd" id="1_c1mt3"]
+[ext_resource type="PackedScene" uid="uid://cfxu75oie3esn" path="res://Scenes/UI/ConstructionButton.tscn" id="2_d5ixm"]
+[ext_resource type="Texture2D" uid="uid://bqbur00jxf3hr" path="res://Images/UI/Icons/PartsIconBackground.png" id="3_8er53"]
+[ext_resource type="Texture2D" uid="uid://crnp48ie2t5cx" path="res://Images/UI/HealthBarUnder.png" id="3_cq3rs"]
+[ext_resource type="PackedScene" uid="uid://q0o8dp7kmwua" path="res://Scenes/UI/ResourceDisplay.tscn" id="3_h0xge"]
+[ext_resource type="Texture2D" uid="uid://brcjp3htffexc" path="res://Images/UI/Icons/PeopleIconBackground.png" id="4_owmya"]
+[ext_resource type="Texture2D" uid="uid://dr63vqxmgsdj8" path="res://Images/UI/Icons/CrystalIconBackground.png" id="5_4cyq8"]
+[ext_resource type="Resource" uid="uid://bqubmwky71v24" path="res://Resources/Structures/WoodenTower.tres" id="8_krsl8"]
+[ext_resource type="Texture2D" uid="uid://f0ndy03kdutr" path="res://Images/UI/SquadBanner.png" id="8_toofy"]
+[ext_resource type="Resource" uid="uid://e5arhlkuvigx" path="res://Resources/Structures/BannerTest.tres" id="10_btfs0"]
+
+[node name="MainGUI" type="CanvasLayer" groups=["GUI"]]
+follow_viewport_enabled = true
+script = ExtResource("1_c1mt3")
+
+[node name="Container" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TopMenuBackground" type="TextureRect" parent="Container"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 48.0
+grow_horizontal = 2
+texture = ExtResource("3_cq3rs")
+expand_mode = 2
+stretch_mode = 1
+
+[node name="ResourceDisplay" type="VFlowContainer" parent="Container/TopMenuBackground"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 33.0
+offset_right = -52.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 64
+
+[node name="PartsDisplay" parent="Container/TopMenuBackground/ResourceDisplay" instance=ExtResource("3_h0xge")]
+layout_mode = 2
+iconImage = ExtResource("3_8er53")
+
+[node name="PeopleDisplay" parent="Container/TopMenuBackground/ResourceDisplay" instance=ExtResource("3_h0xge")]
+layout_mode = 2
+iconImage = ExtResource("4_owmya")
+
+[node name="CrystalDisplay" parent="Container/TopMenuBackground/ResourceDisplay" instance=ExtResource("3_h0xge")]
+layout_mode = 2
+iconImage = ExtResource("5_4cyq8")
+
+[node name="ConstructionPanelBackground" type="Panel" parent="Container"]
+custom_minimum_size = Vector2(48, 0)
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -48.0
+offset_top = 49.0
+grow_horizontal = 0
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="ConstructionPanel" type="VBoxContainer" parent="Container"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.965278
+anchor_top = 0.0756173
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="ConstructionButton" parent="Container/ConstructionPanel" instance=ExtResource("2_d5ixm")]
+layout_mode = 2
+structureResource = ExtResource("8_krsl8")
+
+[node name="ConstructionButton2" parent="Container/ConstructionPanel" instance=ExtResource("2_d5ixm")]
+layout_mode = 2
+icon = ExtResource("8_toofy")
+structureResource = ExtResource("10_btfs0")

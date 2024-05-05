@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="CostResource" load_steps=2 format=3 uid="uid://dosmreuiu3opw"]
+
+[ext_resource type="Script" path="res://Resources/CostResource.gd" id="1_bqjab"]
+
+[resource]
+script = ExtResource("1_bqjab")
+cost = 10
+resourceType = 0

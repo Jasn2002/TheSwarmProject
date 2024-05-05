@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://isosgs7oavbe"]
+
+[ext_resource type="Script" path="res://Scripts/ComponentScripts/HurtboxComponent.gd" id="1_45ofh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8tjtj"]
+radius = 20.0
+
+[node name="HurtboxComponent" type="Area2D" groups=["Hurtbox"]]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("1_45ofh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_8tjtj")

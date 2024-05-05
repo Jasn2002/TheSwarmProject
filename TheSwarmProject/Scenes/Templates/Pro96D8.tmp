@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://1kl7xdxsos2k"]
+
+[ext_resource type="Script" path="res://Scripts/CustomNodes/Projectile.gd" id="1_dmuvr"]
+[ext_resource type="Texture2D" uid="uid://ddwrskxgsom7m" path="res://Images/Projectile/ProjectileArrow.png" id="2_ldtx0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3ieqb"]
+size = Vector2(22, 3)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g5ljc"]
+radius = 4.0
+
+[node name="Projectile" type="CharacterBody2D"]
+script = ExtResource("1_dmuvr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ldtx0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, -1.5)
+shape = SubResource("RectangleShape2D_3ieqb")
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(12, -2)
+shape = SubResource("CircleShape2D_g5ljc")
+debug_color = Color(0.901961, 0.290196, 0.278431, 0.419608)
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="UnitResource" load_steps=2 format=3 uid="uid://05vdvsfrqpnv"]
+
+[ext_resource type="Script" path="res://Resources/UnitResource.gd" id="1_8jmxn"]
+
+[resource]
+script = ExtResource("1_8jmxn")
+unitName = "Urist"
+unitType = "Axedwarf"
+id = "031"
+speed = 200.0
+health = 5.0
