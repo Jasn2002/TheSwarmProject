@@ -1,0 +1,10 @@
+Structure coordinates (global position) : Vector2(416. 243)
+
+
+DISCARDED CODE
+
+The one closest to the goal goes first
+	var goalGlobalPosition = get_tree().get_first_node_in_group('EnemyGoal').global_position
+	targetsInRange.sort_custom(func(a, b) : return true if \
+	goalGlobalPosition - a.global_position \
+	> goalGlobalPosition - b.global_position else false)
